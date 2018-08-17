@@ -65,20 +65,30 @@ class Reply(models.Model):
     def get_absolute_url(self):
         return reverse('article_list')
 
-class Like(models.model):
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete = models.CASCADE
-    )
-    article = models.ForeignKey(
-        Article,
-        on_delete = models.CASCADE
-    )
-    comment = models.ForeignKey(
-        Comment,
-        on_delete = models.CASCADE
-    )
-    reply = models.ForeignKey(
-        Reply,
-        on_delete = models.CASCADE
-    )
+# if you need to add like button
+#and the same for dislike if wanted
+
+# class Like(models.Model):
+#     author = models.ForeignKey(
+#         settings.AUTH_USER_MODEL,
+#         on_delete = models.CASCADE,
+#         related_name = 'autor_likes'
+#     )
+#     article = models.ForeignKey(
+#         Article,
+#         on_delete = models.CASCADE,
+#         related_name = 'article_likes'
+#     )
+#     comment = models.ForeignKey(
+#         Comment,
+#         on_delete = models.CASCADE,
+#         related_name = 'comment_likes'
+#     )
+#     reply = models.ForeignKey(
+#         Reply,
+#         on_delete = models.CASCADE,
+#         related_name = 'reply_likes'
+#     )
+
+#     def __str__(self):
+#         return '{x} likes \'{y}\''.format(x=self.user.username,y=self.post.text)
