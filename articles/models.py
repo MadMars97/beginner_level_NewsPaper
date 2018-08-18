@@ -68,27 +68,27 @@ class Reply(models.Model):
 # if you need to add like button
 #and the same for dislike if wanted
 
-# class Like(models.Model):
-#     author = models.ForeignKey(
-#         settings.AUTH_USER_MODEL,
-#         on_delete = models.CASCADE,
-#         related_name = 'autor_likes'
-#     )
-#     article = models.ForeignKey(
-#         Article,
-#         on_delete = models.CASCADE,
-#         related_name = 'article_likes'
-#     )
-#     comment = models.ForeignKey(
-#         Comment,
-#         on_delete = models.CASCADE,
-#         related_name = 'comment_likes'
-#     )
-#     reply = models.ForeignKey(
-#         Reply,
-#         on_delete = models.CASCADE,
-#         related_name = 'reply_likes'
-#     )
+class Like(models.Model):
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete = models.CASCADE,
+        related_name = 'autor_likes'
+    )
+    article = models.ForeignKey(
+        Article,
+        on_delete = models.CASCADE,
+        related_name = 'article_likes'
+    )
+    comment = models.ForeignKey(
+        Comment,
+        on_delete = models.CASCADE,
+        related_name = 'comment_likes'
+    )
+    reply = models.ForeignKey(
+        Reply,
+        on_delete = models.CASCADE,
+        related_name = 'reply_likes'
+    )
 
-#     def __str__(self):
-#         return '{x} likes \'{y}\''.format(x=self.user.username,y=self.post.text)
+    def __str__(self):
+        return '{x} likes \'{y}\''.format(x=self.user.username,y=self.post.text)
